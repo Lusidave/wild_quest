@@ -1,0 +1,19 @@
+{
+    "name": "lusidave/composer",
+    "description": "Projet quete composer",
+    "authors": [
+        {
+            "name": "Lusidave",
+            "email": "lusidave@gmail.com"
+        }
+    ],
+
+
+
+    "autoload": {
+        "psr-4": {"Acme\\": "src/"}
+    },
+    "require": {
+        "ehime/hello-world": "^1.0"
+    }
+}

@@ -1,0 +1,21 @@
+.fixed-size{
+    width: 600px !important;
+}
+
+.color-orange{
+    color: #FF7F50;
+}
+.color-green{
+    color: #32CD32;
+}
+.bg-red{
+    background-color: #FF0000;
+}
+
+.bg-black{
+    background-color: black;
+}
+
+.big-font-size{
+    font-size: 24px;
+}
