@@ -1,0 +1,30 @@
+
+{% extends "base.html.twig" %}
+
+{% block title %}
+{{'Hello, world!'}}
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="row">
+
+        {% for product in products %}
+
+            <div class="col-4">
+            <p style="border: 1px solid red; margin: 20px"> {{ product }} </p>
+            </div>
+
+
+        {% endfor %}
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

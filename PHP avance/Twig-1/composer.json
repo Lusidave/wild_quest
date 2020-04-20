@@ -1,0 +1,12 @@
+{
+    "name": "lusidave/twig",
+    "authors": [
+        {
+            "name": "Lusidave",
+            "email": "lusidave@hotmail.fr"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0"
+    }
+}
