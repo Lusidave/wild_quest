@@ -7,7 +7,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 
 use HelloWorld\SayHello;
-// echo Hello
+
 echo SayHello::world();
 
 
