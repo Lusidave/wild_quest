@@ -1,208 +1,126 @@
 <?php
 
-class Car
+require_once ('Vehicle.php');
+
+class Car extends Vehicle implements Lightable
 {
-    /**
-     * @var integer
-     */
-    private $nbWheels = 4;
-
-    /**
-     * @var integer
-     */
-    private $currentSpeed = 50;
-
-    /**
-     * @var string
-     */
-    private $color;
-
-    /**
-     * @var integer
-     */
-    private $nbSeats;
-
+    const ALLOWED_ENERGIES = [
+        'fuel',
+        'electric',
+    ];
     /**
      * @var string
      */
     private $energy;
 
     /**
-     * @var integer
+     * @var int
      */
-    private $energyLevel = 50;
-
+    private $energyLevel;
     /**
      * @var bool
      */
     private $hasParkBrake;
 
     /**
-     * CONSTRUCTOR
+     * @var bool
      */
+    protected $hasLight;
+
+    /**
+     * Car constructor.
+     * @param string $color
+     * @param int $nbSeats
+     * @param string $energy
+     */
+
     public function __construct(string $color, int $nbSeats, string $energy)
     {
-        $this->color = $color;
-        $this->nbSeats = $nbSeats;
-        $this->energy = $energy;
+        parent::__construct($color, $nbSeats);
+        $this->setEnergy($energy);
     }
 
     /**
-     * METHODS
-     * @throws Exception
+     * @return bool
      */
-
-    public function start()
+    public function switchOn() :bool
     {
-        if(is_bool($this->hasParkBrake)) {
-            return 'Ma voiture roule comme un donut';
-        } else {
-            throw new Exception('Incorrect value for hasParkBrake');
-        }
+        // TODO: Implement switchOn() method.
+        return $this->hasLight = true;
     }
-
-    public function forward()
-    {
-        $this->currentSpeed;
-        return "Go !";
-    }
-
-    public function brake():string
-    {
-        $sentence = "";
-        while ($this->currentSpeed > 0)
-        {
-            $this->currentSpeed--;
-            $sentence .= "Brake !!!";
-        }
-        $sentence .= "I'm stopped !";
-        return $sentence;
-    }
-
-
 
     /**
-     * GETTERS
+     * @return bool
      */
-
-    /**
-     * @return int
-     */
-    public function getNbWheels():int
+    public function switchOff() :bool
     {
-        return $this->nbWheels;
+        // TODO: Implement switchOff() method.
+        return $this->hasLight = false;
     }
 
     /**
-     * @return int
+     * @return bool
      */
-    public function getCurrentSpeed():int
+    public function getHasParkBrake(): bool
     {
-        return $this->currentSpeed;
+        return $this->hasParkBrake;
     }
 
     /**
-     * @return string
-     */
-    public function getColor():string
-    {
-        return $this->color;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNbSeats():int
-    {
-        return $this->nbSeats;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEnergy():string
-    {
-        return $this->energy;
-    }
-
-    /**
-     * @return int
-     */
-    public function getEnergyLevel():int
-    {
-        return $this->energyLevel;
-    }
-
-    /**
-     * SETTERS
      * @param bool $hasParkBrake
      */
-
-    public function setParkBrake($hasParkBrake)
+    public function setHasParkBrake(bool $hasParkBrake)
     {
         $this->hasParkBrake = $hasParkBrake;
     }
 
     /**
-     * @param string $nbWheels
-     * @return void
+     * @return string
      */
-    public function setNbWheels(int $nbWheels) : void
+    function start()
     {
-        $this->nbWheels = $nbWheels;
-    }
+        try{
+            $this->getHasParkBrake() === true;
+            throw new Exception("Homer t'as de nouveau oublié le frein à main !!!");
 
-    /**
-     * @param int $currentSpeed
-     * @return void
-     */
-    public function setCurrentSpeed(int $currentSpeed): void
-    {
-        if( $currentSpeed >= 0 ){
-            $this->currentSpeed = $currentSpeed;
+        }catch(Exception $e){$this->setHasParkBrake(true);} finally {
+            echo "Ma voiture roule comme un donut";
+            var_dump($e);
         }
     }
-
     /**
-     * @param string $color
-     * @return void
+     * @return string
      */
-    public function setColor(string $color) : void
+    public function getEnergy(): string
     {
-        $this->color = $color;
-    }
-
-    /**
-     * @param int $nbSeats
-     * @return void
-     */
-    public function setNbSeats(int $nbSeats): void
-    {
-        $this->nbSeats = $nbSeats;
+        return $this->energy;
     }
 
     /**
      * @param string $energy
-     * @return void
+     * @return Car
      */
-    public function setEnergy(string $energy): void
+    public function setEnergy(string $energy): Car
     {
-        if( $energy === "gazoil" || $energy === "electricity" || $energy === "gas" )
-        {
-            $this->color = $energy;
+        if(in_array($energy, self::ALLOWED_ENERGIES)){
+            $this->energy = $energy;
         }
+        return $this;
+    }
 
+    /**
+     * @return int
+     */
+    public function getEnergyLevel(): int
+    {
+        return $this->energyLevel;
     }
 
     /**
      * @param int $energyLevel
-     * @return void
      */
     public function setEnergyLevel(int $energyLevel): void
     {
-        if( $energyLevel >= 0 && $energyLevel <= 100)
-        {
-            $this->energyLevel = $energyLevel;
-        }
+        $this->energyLevel = $energyLevel;
     }
 }

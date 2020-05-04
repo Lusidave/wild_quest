@@ -1,0 +1,166 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+/* NAV */
+
+header nav
+{
+    background-color: rgba(7, 7, 7, 0.712);
+    margin: 5px 5px 0;
+}
+header nav ul li
+{
+    display: inline-block;
+    color: white;
+    margin-left: 10px;
+    padding: 5px;
+}
+header nav ul li:hover
+{
+    background-color: #efefef;
+}
+/* DANGEROUS */
+#dangerous
+{
+    background-color: #efefef;
+    margin: 0 5px 5px 5px;
+    padding: 120px;
+}
+/* FELLOWS */
+#fellows h2
+{
+    text-align: center;
+    margin: 50px;
+}
+#articles
+{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+article
+{
+    width: 33%;
+    height: 450px;
+    background-color: #efefef;
+    margin: 3px;
+}
+/* CONTACT */
+#contact h2
+{
+    margin: 80px 10px 0 10px;
+    border-top: 1px solid black;
+    padding-top: 15px;
+}
+form
+{
+    padding: 60px 0 20px 0;
+}
+.contact-form
+{
+    max-width: 600px;
+    margin: auto;
+    padding: 0 50px;
+    
+    
+}
+.contact-form-text
+{   
+    border: 2px solid black;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0;
+}
+select.contact-form-text
+{
+    border-color: rgb(184, 184, 184);
+    background-color: white;
+}
+textarea.contact-form-text
+{
+    height: 100px;
+}
+
+/* FOOTER */
+
+footer{
+    width: 100%;
+    
+    background-color: rgba(7, 7, 7, 0.712);
+    padding: 20px 0;
+    display: flex;
+    
+}
+footer ul li a{
+    color: white;
+    text-decoration: none;  
+}
+footer ul{
+    width: 100%;
+    padding: 0 30px;
+    list-style-type: none;
+}
+.adeplacer{
+    padding: 20px 0 0 550px;
+}
+footer ul li{
+    padding: 5px;
+}
+button {
+    margin-left: 90%;
+    align-self: flex-end;
+    background-color: #efefef;
+    width: 60px;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+
+/* MOBILE */
+
+@media screen and (max-width: 961px){
+
+    #fellows h2
+    {
+        text-align: center;
+        font-size: 50px;
+        margin-top: 50px;
+    }
+    h2
+    {
+        text-align: center;
+    }
+    #articles
+    {
+        flex-direction: column;
+        height: 300px;
+    }
+    article{
+        width: 98%;
+        height: 98%;
+    }
+    footer {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 0;
+      }
+      .adeplacer {
+          width: 100%;
+          padding: 0;
+      }
+      footer ul {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+    }
+}
+

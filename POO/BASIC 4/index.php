@@ -3,12 +3,8 @@
 require_once 'Vehicle.php';
 require_once 'Car.php';
 
-// Vehicles creation
 $car = new Car('red', 4, 'fuel');
 
-/**
- * Test
- */
 
 try {
     $car->setParkBrake(15);

@@ -22,12 +22,20 @@ class Vehicle
      */
     protected $nbWheels;
 
+    /**
+     * Vehicle constructor.
+     * @param string $color
+     * @param int $nbSeats
+     */
     public function __construct(string $color, int $nbSeats)
     {
         $this->color = $color;
         $this->nbSeats = $nbSeats;
     }
 
+    /**
+     * @return string
+     */
     public function forward(): string
     {
         $this->currentSpeed = 15;
@@ -46,11 +54,17 @@ class Vehicle
         return $sentence;
     }
 
+    /**
+     * @return int
+     */
     public function getCurrentSpeed(): int
     {
         return $this->currentSpeed;
     }
 
+    /**
+     * @param int $currentSpeed
+     */
     public function setCurrentSpeed(int $currentSpeed): void
     {
         if($currentSpeed >= 0){
@@ -58,6 +72,9 @@ class Vehicle
         }
     }
 
+    /**
+     * @return string
+     */
     public function getColor(): string
     {
         return $this->color;
@@ -68,21 +85,33 @@ class Vehicle
         $this->color = $color;
     }
 
+    /**
+     * @return int
+     */
     public function getNbSeats(): int
     {
         return $this->nbSeats;
     }
 
+    /**
+     * @param int $nbSeats
+     */
     public function setNbSeats(int $nbSeats): void
     {
         $this->nbSeats = $nbSeats;
     }
 
+    /**
+     * @return int
+     */
     public function getNbWheels(): int
     {
         return $this->nbWheels;
     }
 
+    /**
+     * @param int $nbWheels
+     */
     public function setNbWheels(int $nbWheels): void
     {
         $this->nbWheels = $nbWheels;

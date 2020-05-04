@@ -1,22 +1,21 @@
 <?php
 
-require_once 'Vehicle.php';
-require_once 'Car.php';
+require_once ("LightableInterface.php");
+require ("./Car.php");
+require_once ("Bike.php");
 
-// Vehicles creation
-$car = new Car('red', 5, 'fuel');
+$car = new Car('red', 4, 'fuel');
 
-/**
- * Test
- */
 
-echo '<h1>Exceptions handling</h1>';
-try {
-    $car->setParkBrake(15);
-    echo $car->start();
-} catch (Exception $e){
-    print_r($e);
-} finally {
-    $car->setParkBrake(false);
-    echo "<p> Exception trouvée ! On s'occupe de tout ! :) <p><br>" . $car->start();
-}
+$car->switchOn();
+var_dump($car);
+$car->switchOff();
+var_dump($car);
+
+$bike = new Bicycle('blue', 2);
+
+$bike->switchOff();
+var_dump($bike);
+$bike->forward();
+$bike->switchOn();
+var_dump($bike);
